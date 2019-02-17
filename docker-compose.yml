@@ -6,7 +6,3 @@ services:
       dockerfile: DOCKERFILE
     command: npm start
     restart: always
-    volumes:
-      - :/usr/src/app/watch_folder     
-      - :/usr/src/app/export_folder
-      - :/usr/src/app/config
