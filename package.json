@@ -1,0 +1,34 @@
+{
+  "name": "pdf-image-watcher",
+  "version": "1.0.0",
+  "description": "converts pdf files added to a watch folder to image using imagemagic",
+  "main": "app.js",
+  "dependencies": {
+    "chokidar": "^2.1.1",
+    "config": "^3.0.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "ghostscript4js": "^3.0.0",
+    "pdf-image": "^2.0.0",
+    "pdf2img": "^0.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.14.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "debug": "nodemon",
+    "lint": "eslint app.js ./src --ext .js --fix"
+  },
+  "keywords": [
+    "pdf",
+    "image",
+    "converter",
+    "watchfolder"
+  ],
+  "author": "Tobias Wollowski",
+  "license": "MIT"
+}

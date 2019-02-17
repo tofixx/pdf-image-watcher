@@ -1,0 +1,12 @@
+{
+	"watch-folder": "./watch_folder",
+	"export-folder": "./export_folder",
+	"watch-config": {
+		"persistent": true
+	},
+	"delay": 100,
+	"ghostscript-options": {
+		"device": "pngalpha",
+		"resolution": 600
+	}
+}
