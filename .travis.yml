@@ -1,0 +1,5 @@
+language: generic
+services:
+  - docker
+script:
+  - docker-compose build --no-cache
