@@ -2,9 +2,14 @@ language: node_js
 node_js:
   - "10"
 dist: trusty
+env:
+  - CXX=g++-4.8
 addons:
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
+      - g++-4.8
       - libopencv-dev
       - ghostscript
 script:
