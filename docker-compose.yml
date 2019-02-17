@@ -6,12 +6,7 @@ services:
       dockerfile: DOCKERFILE
     command: npm start
     restart: always
-    # environment:
-      # NODE_ENV: development
-    # ports:
-      # - 3000:3000
-      # - 9229:9229
     volumes:
-      - /Users/tobias/volumes/watch:/usr/src/app/watch_folder     
-      - /Users/tobias/volumes/export:/usr/src/app/export_folder
-      - /Users/tobias/volumes/config:/usr/src/app/config
+      - :/usr/src/app/watch_folder     
+      - :/usr/src/app/export_folder
+      - :/usr/src/app/config
