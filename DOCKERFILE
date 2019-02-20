@@ -1,8 +1,10 @@
-FROM node:10
+FROM ubuntu:18.04
 
 RUN apt-get update
 RUN apt-get --yes install ghostscript
 RUN apt-get --yes install libgs-dev
+RUN apt-get --yes install npm
+RUN apt-get --yes install nodejs
 
 # Create app directory
 WORKDIR /usr/src/app
