@@ -3,6 +3,6 @@ services:
   filewatcher:
     build:
       context: .
-      dockerfile: DOCKERFILE
+      dockerfile: Dockerfile
     command: npm start
     restart: always
