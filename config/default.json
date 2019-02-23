@@ -8,5 +8,9 @@
 	"ghostscript-options": {
 		"device": "pngalpha",
 		"resolution": 600
+	},
+	"image-options": {
+		"quality": 75,
+		"progressive": false
 	}
 }

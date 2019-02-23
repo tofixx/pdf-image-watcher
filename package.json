@@ -9,7 +9,8 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "ghostscript4js": "^3.0.0",
     "pdf-image": "^2.0.0",
-    "pdf2img": "^0.5.0"
+    "pdf2img": "^0.5.0",
+    "sharp": "^0.21.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",

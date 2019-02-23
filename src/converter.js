@@ -2,9 +2,13 @@ const gs = require('ghostscript4js');
 const config = require('config');
 const path = require('path');
 const fs = require('fs');
+const sharp = require('sharp');
+
 const { log } = require('./logger');
 
 const GS_OPTIONS = config.get('ghostscript-options');
+const IMG_OPTIONS = config.get('image-options');
+
 
 function Converter(file, target) {
 	this.basePath = path.dirname(require.main.filename);
@@ -20,6 +24,7 @@ Converter.prototype = {
 		const outputDir = path.join(this.outputDir, this.filename);
 		if (!fs.existsSync(outputDir)) {
 			fs.mkdirSync(outputDir);
+			fs.chmodSync(outputDir, '775');
 		}
 		const outputName = path.join(outputDir, `${this.filename}-%03d.png`);
 		const cmd = `-sDEVICE=${GS_OPTIONS.device} -o ${outputName} -sDEVICE=${GS_OPTIONS.device} -r${GS_OPTIONS.resolution} ${this.file}`;
@@ -30,7 +35,9 @@ Converter.prototype = {
 	},
 
 	imageConverter() {
-		Promise.reject(new Error('unsupported operation'));
+		return sharp(this.file)
+			.jpeg(IMG_OPTIONS)
+			.toFile(path.join(this.outputDir, `${this.filename}.jpg`));
 	},
 
 	getConverter() {
@@ -39,7 +46,8 @@ Converter.prototype = {
 			case ('pdf'):
 				log('detected type pdf for', this.file);
 				return this.pdfConverter;
-			case ('jpg', 'jpeg'):
+			case ('jpg'):
+			case ('jpeg'):
 				log('detected type image for', this.file);
 				return this.imageConverter;
 			default:
