@@ -4,7 +4,7 @@
 	"watch-config": {
 		"persistent": true
 	},
-	"delay": 100,
+	"delay": 2000,
 	"ghostscript-options": {
 		"device": "pngalpha",
 		"resolution": 600
