@@ -4,5 +4,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: npm start
+    ports:
+    - "9229:9229"
+    command: 
+      - node
+      - "--inspect-brk=0.0.0.0"
+      - "app.js" 
     restart: always
+    volumes:
+      - ./watch_folder:/usr/src/app/watch_folder
+      - ./export_folder:/usr/src/app/export_folder
