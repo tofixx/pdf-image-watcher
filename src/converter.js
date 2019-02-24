@@ -21,12 +21,7 @@ function Converter(file, target) {
 Converter.prototype = {
 
 	pdfConverter() {
-		const outputDir = path.join(this.outputDir, this.filename);
-		if (!fs.existsSync(outputDir)) {
-			fs.mkdirSync(outputDir);
-			fs.chmodSync(outputDir, '775');
-		}
-		const outputName = path.join(outputDir, `${this.filename}-%03d.png`);
+		const outputName = path.join(this.outputDir, `${this.filename}-%03d.png`);
 		const cmd = `-sDEVICE=${GS_OPTIONS.device} -o ${outputName} -sDEVICE=${GS_OPTIONS.device} -r${GS_OPTIONS.resolution} ${this.file}`;
 		log('execute ghostscript with', cmd);
 		return gs.execute(cmd)
